@@ -4,7 +4,8 @@ end
 
 require("notes").setup()
 
-local function notes_command_exec(args)
+vim.api.nvim_create_user_command("Notes", function(opts)
+	local args = opts.fargs
 	if #args == 0 then
 		print("Invalid command choose from write, find, create")
 		return
@@ -20,15 +21,9 @@ local function notes_command_exec(args)
 	else
 		print("Invalid command " .. args[1] .. "choose from write, find, create")
 	end
-end
-
-vim.api.nvim_create_user_command("Notes", {
-	notes_command_exec,
-	{ nargs = "*" },
-})
+end, { nargs = "*" })
 
 --- key mappings
 vim.api.nvim_set_keymap("n", "<leader>nw", ":Notes write<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>nf", ":Notes find<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>nc", ":Notes create<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>nn", ":Notes<CR>", { noremap = true, silent = true })
