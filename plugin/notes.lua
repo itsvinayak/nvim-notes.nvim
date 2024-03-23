@@ -23,8 +23,7 @@ local function notes_command_exec(args)
 end
 
 vim.api.nvim_create_user_command("Notes", {
-	command = "lua notes_command_exec(<f-args>)",
-	complete = "customlist,Notes",
+	"lua notes_command_exec(args)"
 })
 
 --- key mappings
