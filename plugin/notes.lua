@@ -6,6 +6,11 @@ end
 -- Mark notes plugin as loaded
 vim.g.notes_loaded = true
 
+-- Running the setup function, this function will be called only once
+if require("notes").is_setup_required() then
+	require("notes").setup()
+end
+
 -- Create a user command named "Notes"
 vim.api.nvim_create_user_command("Notes", function(opts)
 	local args = opts.fargs

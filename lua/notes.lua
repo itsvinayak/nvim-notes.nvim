@@ -44,19 +44,23 @@ function notes.create_folder_to_save_notes(path, git_url)
 	os.execute("cd -")
 end
 
+function notes.is_setup_required()
+	local path = get_notes_path()
+	if not vim.fn.isdirectory(path) then
+		return true
+	end
+	return false
+end
+
 -- Function to set up notes environment
 function notes.setup(args)
 	-- if args is not provided, then set it to an empty table
 	args = args or nil
-	vim.g.notes_loaded = true
 	-- Get the git URL and path from the arguments
-	if args and args.git_url and args.path then
-		notes.create_folder_to_save_notes(args.path, args.git_url)
-		return
-	end
 	local git_url = args.git_url or vim.fn.input("Enter the git url to save notes: ")
 	local path = args.path or vim.fn.input("Enter the path to save notes: ")
 	notes.create_folder_to_save_notes(path, git_url)
+	vim.g.notes_loaded = true
 end
 
 -- Function to search for notes using Telescope plugin
