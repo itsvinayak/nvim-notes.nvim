@@ -50,12 +50,9 @@ function notes.is_setup_required()
 end
 
 -- Function to set up notes environment
-function notes.setup(args)
-	print("Setting up notes plugin with args: ", vim.inspect(args))
-	-- if args is not provided, then set it to an empty table
-	args = args or nil
+function notes.setup()
 	-- Get the git URL and path from the arguments
-	local git_url = args.git_url or vim.fn.input("Enter the git url to save notes: ")
+	local git_url = vim.fn.input("Enter the git url to save notes: ")
 	print("Git URL: ", git_url)
 	notes.create_folder_to_save_notes(git_url)
 	vim.g.notes_loaded = true
