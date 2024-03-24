@@ -30,8 +30,12 @@ end
 
 -- Function to set up notes environment
 function notes.setup()
+	local telescope_status = pcall(require, "telescope")
+	if not telescope_status then
+		print("Telescope is required to use notes plugin")
+		return
+	end
 	notes.create_folder_to_save_notes()
-	vim.g.notes_loaded = true
 end
 
 -- Function to search for notes using Telescope plugin
