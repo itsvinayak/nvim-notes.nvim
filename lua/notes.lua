@@ -14,18 +14,7 @@ function notes.create_folder_to_save_notes()
 	-- Create the directory if it doesn't exist
 	if not vim.fn.isdirectory(path) then
 		vim.fn.mkdir(path, "p")
-	else
-		print("Notes directory already exists.")
-		return
 	end
-end
-
-function notes.is_setup_required()
-	local path = get_notes_path()
-	if not vim.fn.isdirectory(path) then
-		return true
-	end
-	return false
 end
 
 -- Function to set up notes environment
@@ -35,6 +24,7 @@ function notes.setup()
 		print("Telescope is required to use notes plugin")
 		return
 	end
+	-- Create a folder to save notes
 	notes.create_folder_to_save_notes()
 end
 
