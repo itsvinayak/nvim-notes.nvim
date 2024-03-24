@@ -8,6 +8,7 @@ vim.g.notes_loaded = true
 
 -- Running the setup function, this function will be called only once
 if require("notes").is_setup_required() then
+	print("Setting up notes plugin")
 	require("notes").setup()
 end
 

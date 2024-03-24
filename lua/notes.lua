@@ -1,12 +1,9 @@
 local notes = {}
 
 -- Function to get the path where notes will be saved
-local function get_notes_path(path)
-	if path then
-		return path
-	end
+local function get_notes_path()
 	local home = os.getenv("HOME")
-	path = home .. "/.notes"
+	local path = home .. "/.notes"
 	return path
 end
 
@@ -17,9 +14,9 @@ local function get_git_url_to_save_notes()
 end
 
 -- Function to create a folder for saving notes and initialize Git repository
-function notes.create_folder_to_save_notes(path, git_url)
+function notes.create_folder_to_save_notes(git_url)
 	-- Get the notes directory path
-	path = get_notes_path(path)
+	local path = get_notes_path()
 	-- Create the directory if it doesn't exist
 	if not vim.fn.isdirectory(path) then
 		vim.fn.mkdir(path, "p")
@@ -54,12 +51,13 @@ end
 
 -- Function to set up notes environment
 function notes.setup(args)
+	print("Setting up notes plugin with args: ", vim.inspect(args))
 	-- if args is not provided, then set it to an empty table
 	args = args or nil
 	-- Get the git URL and path from the arguments
 	local git_url = args.git_url or vim.fn.input("Enter the git url to save notes: ")
-	local path = args.path or vim.fn.input("Enter the path to save notes: ")
-	notes.create_folder_to_save_notes(path, git_url)
+	print("Git URL: ", git_url)
+	notes.create_folder_to_save_notes(git_url)
 	vim.g.notes_loaded = true
 end
 
@@ -67,7 +65,7 @@ end
 function notes.get_notes()
 	local path = get_notes_path()
 	require("telescope.builtin").find_files({
-		prompt_title = "Notes",
+		prompt_title = "Get Notes",
 		cwd = path,
 	})
 end
@@ -88,10 +86,13 @@ function notes.write_notes()
 	local filename = path .. "/note_" .. os.date("%m-%d-%H-%M-%S") .. ".txt"
 	-- Open a new file for writing notes
 	vim.cmd("edit " .. filename)
-	-- Stage, commit, and push the new note to Git
-	os.execute("git add " .. filename)
-	os.execute("git commit -m 'Add note on " .. os.date("%m-%d-%H-%M-%S") .. "'")
-	os.execute("git push")
+	vim.api.nvim_command([[
+	    autocmd BufWritePost * lua
+		local filename = vim.fn.expand("<afile>")
+		os.execute("git add " .. filename)
+		os.execute("git commit -m 'Add note on " .. os.date("%m-%d-%H-%M-%S") .. "'")
+		os.execute("git push --all")
+	]])
 end
 
 return notes
