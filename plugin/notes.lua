@@ -27,7 +27,7 @@ vim.api.nvim_create_user_command("Notes", function(opts)
 		require("notes").get_notes()
 	elseif args[1] == "setup" then
 		-- Call the setup function from the notes module and pass any additional arguments
-		require("notes").setup(args)
+		require("notes").setup()
 	else
 		-- Print error message if an invalid command was provided
 		print("Invalid command: " .. args[1] .. ". Choose from write, find, get, or setup")
