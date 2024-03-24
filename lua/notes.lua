@@ -17,17 +17,6 @@ function notes.create_folder_to_save_notes()
 	end
 end
 
--- Function to set up notes environment
-function notes.setup()
-	local telescope_status = pcall(require, "telescope")
-	if not telescope_status then
-		print("Telescope is required to use notes plugin")
-		return
-	end
-	-- Create a folder to save notes
-	notes.create_folder_to_save_notes()
-end
-
 -- Function to search for notes using Telescope plugin
 function notes.get_notes()
 	local path = get_notes_path()
@@ -51,6 +40,7 @@ function notes.write_notes()
 	local path = get_notes_path()
 	-- Generate a filename with current date and time
 	local filename = path .. "/note_" .. os.date("%m-%d-%H-%M-%S") .. ".txt"
+	node.create_folder_to_save_notes()
 	-- Open a new file for writing notes
 	vim.cmd("edit " .. filename)
 end

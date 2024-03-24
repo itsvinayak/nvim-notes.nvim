@@ -6,15 +6,13 @@ end
 -- Mark notes plugin as loaded
 vim.g.notes_loaded = true
 
-require("notes").setup()
-
 -- Create a user command named "Notes" that can be used to interact with the notes plugin
 vim.api.nvim_create_user_command("Notes", function(opts)
 	local args = opts.fargs
 	-- Check if any arguments were provided
 	if #args == 0 then
 		-- Print error message if no arguments were provided
-		print("Invalid command. Choose from write, find, get, or setup")
+		print("Invalid command. Choose from write, find or get")
 		return
 	end
 	-- Check the first argument to determine the action
@@ -29,7 +27,7 @@ vim.api.nvim_create_user_command("Notes", function(opts)
 		require("notes").get_notes()
 	else
 		-- Print error message if an invalid command was provided
-		print("Invalid command: " .. args[1] .. ". Choose from write, find, get, or setup")
+		print("Invalid command: " .. args[1] .. ". Choose from write, find or get")
 	end
 end, { nargs = "*" })
 
