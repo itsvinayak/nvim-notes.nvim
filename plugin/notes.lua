@@ -1,4 +1,3 @@
--- Check if notes plugin is already loaded
 if vim.g.notes_loaded then
 	return -- If loaded, exit to prevent reloading
 end
@@ -25,6 +24,16 @@ vim.api.nvim_create_user_command("Notes", function(opts)
 	elseif args[1] == "get" then
 		-- Call the get_notes function from the notes module
 		require("notes").get_notes()
+	elseif args[1] == "setup" then
+		-- Call the setup function from the notes module
+		require("notes").setup()
+	elseif args[1] == "help" then
+		-- Print help message if help command was provided
+		print("Notes plugin commands:")
+		print("  :Notes write - Write a new note")
+		print("  :Notes find - Find notes by title")
+		print("  :Notes get - Get a list of all notes")
+		print("  :Notes setup - Setup the notes plugin")
 	else
 		-- Print error message if an invalid command was provided
 		print("Invalid command: " .. args[1] .. ". Choose from write, find or get")
@@ -35,3 +44,4 @@ end, { nargs = "*" })
 vim.api.nvim_set_keymap("n", "<leader>nw", ":Notes write<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>nf", ":Notes find<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ng", ":Notes get<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ns", ":Notes setup<CR>", { noremap = true, silent = true })

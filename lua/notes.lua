@@ -12,9 +12,15 @@ function notes.create_folder_to_save_notes()
 	-- Get the notes directory path
 	local path = get_notes_path()
 	-- Create the directory if it doesn't exist
-	if not vim.fn.isdirectory(path) then
+	if vim.fn.isdirectory(path) == 0 then
+		print("Creating directory : ", path)
 		vim.fn.mkdir(path, "p")
 	end
+end
+
+function notes.setup()
+	-- Create a folder to save notes
+	notes.create_folder_to_save_notes()
 end
 
 -- Function to search for notes using Telescope plugin
@@ -40,7 +46,7 @@ function notes.write_notes()
 	local path = get_notes_path()
 	-- Generate a filename with current date and time
 	local filename = path .. "/note_" .. os.date("%m-%d-%H-%M-%S") .. ".txt"
-	node.create_folder_to_save_notes()
+	notes.create_folder_to_save_notes()
 	-- Open a new file for writing notes
 	vim.cmd("edit " .. filename)
 end
