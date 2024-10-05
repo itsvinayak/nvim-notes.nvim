@@ -7,7 +7,7 @@ function utils.log(message, level, enabled)
   end
   level = level or 'INFO' -- Default log level is INFO
   local log_message = string.format('[%s] [%s]: %s\n', os.date '%Y-%m-%d %H:%M:%S', level, message)
-
+  local log_file = utils.get_notes_path() .. '/log' .. os.date '%Y-%m-%d' .. '.log'
   -- Append log message to the log file
   local file = io.open(log_file, 'a')
   if file then
