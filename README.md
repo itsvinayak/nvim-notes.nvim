@@ -84,7 +84,6 @@ The plugin comes with default settings, which you can customize during setup:
 ```lua
 require('notes').setup {
   path = '~/.notes',              -- Directory where notes are saved
-  log_file = '~/.config/nvim/log/notes.log', -- Log file location
   log_level = 'INFO',              -- Log level: INFO, DEBUG, ERROR, etc.
   log_enabled = false,             -- Enable or disable logging
 }
