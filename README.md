@@ -11,11 +11,10 @@ nvim-notes is a simple Neovim plugin for managing notes. It integrates with Tele
 - Custom Setup: Configure note paths, logging, and more with :Notes setup.
 
 
-Installation (Using Lazy.nvim)
+## Installation (Using Lazy.nvim)
 
 Add the following lines to your init to install the plugin with Lazy.nvim.lua:
 
-### Step-by-Step Installation
 
 - Add nvim-notes to your Lazy.nvim setup:
 
