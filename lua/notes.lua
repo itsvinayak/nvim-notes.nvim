@@ -13,6 +13,10 @@ notes.config = default_config
 
 -- Function to setup the notes plugin
 function notes.setup(user_config)
+  if pcall(require, 'telescope') == false then
+    utils.log('Telescope is not installed. Please install it to use notes plugin', 'ERROR', true)
+    return
+  end
   -- Merge user-provided config with the default configuration
   notes.config = utils.merge_config(default_config, user_config)
   -- Create a folder to save notes
