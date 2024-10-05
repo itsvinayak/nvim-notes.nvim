@@ -22,7 +22,7 @@ Add the following lines to your init to install the plugin with Lazy.nvim.lua:
 ```lua
 require("lazy").setup({
   {
-    'itsvinayak/nvim-notes.nvim',  -- Replace with your GitHub username
+    'itsvinayak/nvim-notes.nvim',
     dependencies = {
       'nvim-telescope/telescope.nvim', -- Add Telescope as a dependency
       'folke/which-key.nvim'            -- Add WhichKey as a dependency
