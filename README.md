@@ -1,7 +1,7 @@
-# Notes.nvim
+# nvim-notes.nvim
 
 
-Notes.nvim is a simple Neovim plugin for managing notes. It integrates with Telescope.nvim to help you create, search, and manage notes easily within Neovim
+nvim-notes is a simple Neovim plugin for managing notes. It integrates with Telescope.nvim to help you create, search, and manage notes easily within Neovim
 
 ## Features
 
@@ -17,7 +17,7 @@ Add the following lines to your init to install the plugin with Lazy.nvim.lua:
 
 ### Step-by-Step Installation
 
-- Add Notes.nvim to your Lazy.nvim setup:
+- Add nvim-notes to your Lazy.nvim setup:
 
 ```lua
 require("lazy").setup({
