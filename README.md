@@ -37,15 +37,16 @@ require("lazy").setup({
 
       -- Setup WhichKey mappings
       if pcall(require, 'which-key') then
-        require('which-key').register({
+        local wk = require 'which-key'
+        wk.add {
           ['<leader>n'] = {
             name = 'Notes',
-            w = { 'Write a new note', ':Notes write<CR>' },
-            f = { 'Find notes by title', ':Notes find<CR>' },
-            g = { 'Get a list of all notes', ':Notes get<CR>' },
-            s = { 'Setup the notes plugin', ':Notes setup<CR>' },
+            w = { ':Notes write<CR>', 'Write a new note' },
+            f = { ':Notes find<CR>', 'Find notes by title' },
+            g = { ':Notes get<CR>', 'Get a list of all notes' },
+            s = { ':Notes setup<CR>', 'Setup the notes plugin' },
           },
-        }, { prefix = '' })
+        }
       end
     end
   },
