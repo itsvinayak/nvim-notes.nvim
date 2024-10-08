@@ -1,4 +1,22 @@
 {
   "projectName": "nvim-notes.nvim",
-  "projectOwner": "itsvinayak"
+  "projectOwner": "itsvinayak",
+  "files": [
+    "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "itsvinayak",
+      "name": "vinayak",
+      "avatar_url": "https://avatars.githubusercontent.com/u/33996594?v=4",
+      "profile": "https://itsvinayak.github.io/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ]
 }
