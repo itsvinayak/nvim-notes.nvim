@@ -1,4 +1,4 @@
-local utils = require 'utils'
+local utils = require('utils')
 local notes = {}
 
 -- default configuration
@@ -42,19 +42,19 @@ end
 -- function to search for notes using telescope plugin
 function notes.get_notes()
   local path = notes.config.path
-  require('telescope.builtin').find_files {
+  require('telescope.builtin').find_files({
     prompt_title = 'get notes',
     cwd = path,
-  }
+  })
 end
 
 -- function to search within notes using telescope plugin
 function notes.find_notes()
   local path = notes.config.path
-  require('telescope.builtin').live_grep {
+  require('telescope.builtin').live_grep({
     prompt_title = 'find notes',
     cwd = path,
-  }
+  })
 end
 
 -- function to write new notes
@@ -62,7 +62,7 @@ function notes.write_notes()
   local path = notes.config.path
   local filetype = notes.config.filetype
   -- generate a filename with current date and time
-  local filename = path .. '/note_' .. os.date '%m-%d-%h-%m-%s' .. '.' .. filetype
+  local filename = path .. '/note_' .. os.date('%m-%d-%h-%m-%s') .. '.' .. filetype
   notes.create_folder_to_save_notes()
   -- open a new file for writing notes
   vim.cmd('edit ' .. filename)
