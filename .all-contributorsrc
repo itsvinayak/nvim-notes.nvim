@@ -26,6 +26,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "GeorgiChochev",
+      "name": "Georgi Chochev",
+      "avatar_url": "https://avatars.githubusercontent.com/u/117806460?v=4",
+      "profile": "https://github.com/GeorgiChochev",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ]
 }
