@@ -7,6 +7,7 @@ default_config = {}
 default_config.path = utils.get_notes_path()
 default_config.log_level = 'info'
 default_config.log_enabled = false
+default_config.ft = 'txt'
 
 notes.config = default_config
 
@@ -59,8 +60,9 @@ end
 -- function to write new notes
 function notes.write_notes()
   local path = notes.config.path
+  local ft = notes.config.ft
   -- generate a filename with current date and time
-  local filename = path .. '/note_' .. os.date '%m-%d-%h-%m-%s' .. '.txt'
+  local filename = path .. '/note_' .. os.date '%m-%d-%h-%m-%s' .. '.' .. ft
   notes.create_folder_to_save_notes()
   -- open a new file for writing notes
   vim.cmd('edit ' .. filename)

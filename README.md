@@ -33,6 +33,7 @@ require("lazy").setup({
         path = '~/.my_notes',         -- Custom path for notes
         log_enabled = true,           -- Enable logging
         log_level = 'INFO'            -- Set log level to INFO
+        ft = 'txt'                    -- Sets the notes filetype
       }
 
       -- Setup WhichKey mappings
@@ -84,9 +85,10 @@ The plugin comes with default settings, which you can customize during setup:
 
 ```lua
 require('notes').setup {
-  path = '~/.notes',              -- Directory where notes are saved
+  path = '~/.notes',               -- Directory where notes are saved
   log_level = 'INFO',              -- Log level: INFO, DEBUG, ERROR, etc.
   log_enabled = false,             -- Enable or disable logging
+  ft = 'txt',                      -- Sets the notes filetype
 }
 ```
 
