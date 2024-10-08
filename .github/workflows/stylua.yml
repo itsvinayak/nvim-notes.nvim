@@ -1,0 +1,28 @@
+name: Lua Format
+
+on:
+  push:
+    branches:
+      - main # Change this to your default branch if it's different
+  pull_request:
+    branches:
+      - main # Change this to your default branch if it's different
+
+jobs:
+  format:
+    name: Format Lua files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install stylua
+        run: |
+          wget https://github.com/JohnnyMorganz/StyLua/releases/download/v0.11.0/stylua-0.11.0-linux.zip
+          unzip stylua-0.11.0-linux.zip
+          chmod +x stylua
+          sudo mv stylua /usr/local/bin/
+          rm stylua-0.11.0-linux.zip
+
+      - name: Format Lua files
+        run: stylua --check .
