@@ -34,7 +34,9 @@ vim.api.nvim_create_user_command('Notes', function(opts)
     -- Print error message if an invalid command was provided
     print('Invalid command: ' .. args[1] .. '. Choose from write, find or get')
   end
-end, { nargs = '*' })
+end, {
+  nargs = '*',
+})
 
 -- Define key mappings for commonly used commands
 vim.api.nvim_set_keymap('n', '<leader>nw', ':Notes write<CR>', { noremap = true, silent = true })
