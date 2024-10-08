@@ -68,8 +68,6 @@ require("lazy").setup({
   Searches for notes using Telescope.
 - :Notes get
   Lists all the notes in the notes directory.
-- :Notes setup [key=value]
-  Configures the plugin (e.g., paths, logging) using key-value pairs.
 
 
 ## Key Mappings
