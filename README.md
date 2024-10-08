@@ -106,6 +106,7 @@ require('notes').setup {
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://itsvinayak.github.io/"><img src="https://avatars.githubusercontent.com/u/33996594?v=4?s=100" width="100px;" alt="vinayak"/><br /><sub><b>vinayak</b></sub></a><br /><a href="#code-itsvinayak" title="Code">💻</a> <a href="#doc-itsvinayak" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/mi-connell/"><img src="https://avatars.githubusercontent.com/u/14168559?v=4?s=100" width="100px;" alt="Michael Connell"/><br /><sub><b>Michael Connell</b></sub></a><br /><a href="#doc-MiConnell" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
