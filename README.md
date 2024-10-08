@@ -88,7 +88,7 @@ require('notes').setup {
   path = '~/.notes',               -- Directory where notes are saved
   log_level = 'INFO',              -- Log level: INFO, DEBUG, ERROR, etc.
   log_enabled = false,             -- Enable or disable logging
-  ft = 'txt',                      -- Sets the notes filetype
+  filetype = 'txt',                      -- Sets the notes filetype
 }
 ```
 
