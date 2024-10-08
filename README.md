@@ -97,6 +97,17 @@ require('notes').setup {
 - Neovim 0.5+: Make sure you're running Neovim 0.5 or higher.
 - Telescope.nvim: This plugin requires Telescope to perform note searches.
 
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ## License
 
 This project is licensed under the GNU License. See the LICENSE file for more information.
