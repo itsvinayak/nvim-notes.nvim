@@ -15,16 +15,16 @@ vim.api.nvim_create_user_command('Notes', function(opts)
     return
   end
   -- Check the first argument to determine the action
-  if args[1] == 'write' then
+  if args[1] == 'write' or args[1] == 'w' then
     -- Call the write_notes function from the notes module
     require('notes').write_notes()
-  elseif args[1] == 'find' then
+  elseif args[1] == 'find' or args[1] == 'f' then
     -- Call the find_notes function from the notes module
     require('notes').find_notes()
-  elseif args[1] == 'get' then
+  elseif args[1] == 'get' or args[1] == 'g' then
     -- Call the get_notes function from the notes module
     require('notes').get_notes()
-  elseif args[1] == 'help' then
+  elseif args[1] == 'help' or args[1] == 'h' then
     -- Print help message if help command was provided
     print 'Notes plugin commands:'
     print '  :Notes write - Write a new note'
@@ -40,3 +40,4 @@ end, { nargs = '*' })
 vim.api.nvim_set_keymap('n', '<leader>nw', ':Notes write<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>nf', ':Notes find<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ng', ':Notes get<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>nh', ':Notes help<CR>', { noremap = true, silent = true })
