@@ -1,8 +1,11 @@
 # nvim-notes.nvim
+[![Lua Format](https://github.com/itsvinayak/nvim-notes.nvim/actions/workflows/stylua.yml/badge.svg)](https://github.com/itsvinayak/nvim-notes.nvim/actions/workflows/stylua.yml)
 
 ![nvim-notes](images/nvim-notes.nvim.png)
 
 nvim-notes is a simple Neovim plugin for managing notes. It integrates with Telescope.nvim to help you create, search, and manage notes easily within Neovim
+
+
 
 ## Features
 
