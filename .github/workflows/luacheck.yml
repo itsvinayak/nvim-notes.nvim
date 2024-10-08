@@ -8,3 +8,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Luacheck linter
         uses: lunarmodules/luacheck@v1
+        with:
+          args: '--globals vim'
